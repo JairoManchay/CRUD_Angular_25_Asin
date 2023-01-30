@@ -1,0 +1,14 @@
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.texto{
+  color: white;
+  font-size: 2rem;
+}

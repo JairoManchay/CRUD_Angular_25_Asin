@@ -1,0 +1,47 @@
+
+<section class="container">
+  <article class="row d-flex justify-content-center  p-5">
+
+    <section class="col-7  d-flex flex-column align-items-center w-50">
+
+      <form action="" class="shadow p-4 caja_form" >
+
+        <section class="cuadro_imagen">
+          <img src="./assets/certus_image.png" alt="imagen_certus">
+        </section>
+
+        <section class="grid p-fluid">
+          <div class="field col-12 md:col-4">
+            <article class="caja_text">
+              <div class="p-inputgroup ">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-user"></i>
+                </span>
+                <span class="p-float-label">
+                    <input type="text" id="inputgroup" pInputText class="txt_input p-inputgroup-addon">
+                    <label for="inputgroup">InputGroup</label>
+                </span>
+            </div>
+            </article>
+        </div>
+
+
+
+          <div class="field col-12 md:col-4">
+            <article class="caja_text">
+              <span class="p-float-label">
+                  <p-password inputId="password"></p-password>
+                  <label for="password">Password</label>
+              </span>
+            </article>
+          </div>
+        </section>
+
+        <section class="d-flex justify-content-center">
+          <input type="submit" class="btn btn-outline-primary" value="Enviar" (click)="login()">
+        </section>
+      </form>
+    </section>
+
+  </article>
+</section>

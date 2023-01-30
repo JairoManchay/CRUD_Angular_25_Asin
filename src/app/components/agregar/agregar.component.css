@@ -1,0 +1,11 @@
+.txt_input{
+  width: 100%;
+}
+.txt_input::placeholder{
+  color: rgb(132, 138, 135);
+}
+
+.text_pass{
+  background: white;
+}
+

@@ -1,0 +1,118 @@
+
+<section *ngIf="nombre.invalid && (nombre.touched || nombre.dirty)"  role="alert">
+    <section *ngIf="nombre.errors?.['required']" class="alert alert-warning alert-dismissible fade show mt-3">
+      El campo de nombre no está completo
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </section>
+  </section>
+<section *ngIf="apellido.invalid && (apellido.touched || apellido.dirty)"  role="alert">
+  <section *ngIf="apellido.errors?.['required']" class="alert alert-warning alert-dismissible fade show mt-3">
+    El campo de apellido no está completo
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </section>
+</section>
+
+<section *ngIf="correo.invalid && (correo.touched || correo.dirty)"  role="alert">
+    <section *ngIf="correo.errors?.['required']" class="alert alert-warning alert-dismissible fade show mt-3">
+      El campo de Correo no está completo
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </section>
+  </section>
+
+
+<h2 class="text-center mt-3">Añadir Usuario</h2>
+<section class="container mt-3">
+
+  <form action="" class="p-4 shadow gap-2" #form="ngForm">
+    <section class="p-inputgroup mt-3 mb-4 p-fluid grid">
+      <article class="w-25">
+        <select name="title" [(ngModel)]="modelo[0].Title" class="p-inputgroup-addon w-100">
+          <option *ngFor="let item of tituloArr" value="{{item.texto}}" class="text-white">{{item.texto}}</option>
+        </select>
+      </article>
+
+
+      <section class="p-inputgroup ms-3">
+          <input type="text"
+            id="firstname"
+            pInputText
+            name="Nombre"
+            #nombre="ngModel"
+            required
+            [(ngModel)]="modelo[0].Nombre"
+            class="txt_input p-inputgroup-addon"
+            placeholder="FirstName">
+
+
+
+      </section>
+
+
+      <section class="p-inputgroup ms-3">
+        <input
+          type="text"
+          id="lastname"
+          name="Apellido"
+          pInputText
+          #apellido="ngModel"
+          required
+          class="txt_input p-inputgroup-addon"
+          placeholder="Last Name"
+          [(ngModel)]="modelo[0].Apellido">
+
+    </section>
+
+
+    </section>
+
+    <section class="p-inputgroup d-flex mt-3 mb-4">
+      <section class="p-inputgroup">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          pInputText
+          #correo="ngModel"
+          required
+          class="p-inputgroup-addon w-100"
+          placeholder="Email.."
+          [(ngModel)]="modelo[0].Correo">
+      </section>
+
+      <select name="role" [(ngModel)]="modelo[0].Role" class="p-inputgroup-addon w-75 ms-2">
+        <option *ngFor="let item of roleArr" value="{{item.texto}}" class="text-white">{{item.texto}}</option>
+      </select>
+
+    </section>
+
+    <section class="p-fluid d-flex mt-3 mb-4">
+      <section class="field w-50">
+        <span class="p-float-label">
+          <p-password inputId="password" [(ngModel)]="modelo[0].Contrasena" name="Contrasena"></p-password>
+          <label for="password">Password</label>
+      </span>
+      </section>
+
+      <section class="field w-50">
+        <span class="p-float-label ms-3">
+          <p-password inputId="Confirpassword" class="text_pass" [(ngModel)]="modelo[0].Contrasena" name="Confirtrasena"></p-password>
+          <label for="Confirpassword">Confirm Password</label>
+        </span>
+      </section>
+    </section>
+
+
+    <section class="d-flex mt-4 gap-2">
+      <button class="btn btn-success text-white" (click)="Registrar()" [disabled]="!form.valid">Enviar</button>
+      <button class="btn btn-success text-white" routerLink="/vista">Cancelar</button>
+
+    </section>
+  </form>
+</section>
+
+
+<section *ngIf="confirmado">
+  <section class="alert alert-primary">
+    {{mensaje}}
+  </section>
+</section>

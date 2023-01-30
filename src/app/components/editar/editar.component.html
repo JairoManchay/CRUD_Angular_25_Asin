@@ -1,0 +1,154 @@
+<h2 class="text-center mt-3">Editar Usuario</h2>
+<section class="container mt-3">
+
+<form action="" class="p-4 shadow gap-2" #form="ngForm">
+  <section class="p-inputgroup mt-3 mb-4 p-fluid grid">
+    <article class="w-25">
+      <select name="title" class="p-inputgroup-addon w-100" required [(ngModel)]="modelo[0].Title">
+        <option *ngFor="let item of tituloArr" value="{{item.texto}}"
+          class="text-white">{{item.texto}}</option>
+      </select>
+    </article>
+
+
+    <section class="p-inputgroup ms-3">
+        <input type="text"
+          id="firstname"
+          pInputText
+          name="Nombre"
+          required
+          [(ngModel)]="modelo[0].Nombre"
+          value="{{empleadoArrId[0]?.Nombre}}"
+          class="txt_input p-inputgroup-addon"
+          placeholder="FirstName">
+    </section>
+
+
+    <section class="p-inputgroup ms-3">
+      <input
+        type="text"
+        id="lastname"
+        name="Apellido"
+        pInputText
+        [(ngModel)]="modelo[0].Apellido"
+        value="{{empleadoArrId[0]?.Apellido}}"
+        required
+        class="txt_input p-inputgroup-addon"
+        placeholder="Last Name"
+        >
+    </section>
+  </section>
+
+  <section class="p-inputgroup d-flex mt-3 mb-4">
+    <section class="p-inputgroup">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        pInputText
+        [(ngModel)]="modelo[0].Correo"
+        value="{{empleadoArrId[0]?.Correo}}"
+        required
+        class="p-inputgroup-addon w-100"
+        placeholder="Email.."
+        >
+    </section>
+
+    <select name="role" class="p-inputgroup-addon w-75 ms-2" [(ngModel)]="modelo[0].Role">
+      <option *ngFor="let item of roleArr"
+      value="{{item.texto}}" class="text-white">{{item.texto}}</option>
+    </select>
+  </section>
+
+  <h3 class="text-white">Change Password</h3>
+  <h4 class="text-white">Leave blank to keep the same password</h4>
+  <hr class="text-white container">
+
+  <section class="p-fluid d-flex mt-3 mb-4">
+    <section class="field w-50">
+      <span class="p-float-label">
+        <p-password
+          [(ngModel)]="modelo[0].Contrasena"
+          required inputId="password" name="Contrasena" class="text_pass"></p-password>
+        <label for="password">contraseña</label>
+    </span>
+    </section>
+
+    <section class="field w-50">
+      <span class="p-float-label ms-3">
+        <p-password
+          [(ngModel)]="modelo[0].Contrasena"
+          required inputId="Confirpassword" class="text_pass"  name="Confirtrasena"></p-password>
+        <label for="Confirpassword">Confirm Password</label>
+      </span>
+    </section>
+  </section>
+
+
+  <section class="d-flex mt-4 gap-2">
+    <button class="btn btn-success text-white" (click)="postUserId(modelo[0])" [disabled]="!form.valid">Guardar</button>
+    <button
+      class="btn btn-success"
+      icon="pi pi-backward"
+      pButton
+      iconPos="left"
+      label="Regreso"
+      routerLink="/vista"></button>
+    <button
+        pButton
+        type="button"
+        icon="pi pi-question-circle"
+        iconPos="left"
+        data-bs-toggle="modal" data-bs-target="#modalPregunta"
+    ></button>
+
+
+  </section>
+
+
+
+
+</form>
+</section>
+
+
+<div class="modal fade" id="modalPregunta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informacion de la Vista</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span class="p-float-label">
+          <input type="text" id="inputgroup" pInputText class="txt_input p-inputgroup-addon" disabled>
+          <label for="inputgroup">{{empleadoArrId[0]?.Title}}</label>
+        </span>
+        <span class="p-float-label">
+          <input type="text" id="inputgroup" pInputText class="txt_input p-inputgroup-addon" disabled>
+          <label for="inputgroup">{{empleadoArrId[0]?.Nombre}}</label>
+        </span>
+        <span class="p-float-label">
+          <input type="text" id="inputgroup" pInputText class="txt_input p-inputgroup-addon" disabled>
+          <label for="inputgroup">{{empleadoArrId[0]?.Apellido}}</label>
+        </span>
+        <span class="p-float-label">
+          <input type="text" id="inputgroup" pInputText class="txt_input p-inputgroup-addon" disabled>
+          <label for="inputgroup">{{empleadoArrId[0]?.Correo}}</label>
+        </span>
+        <span class="p-float-label">
+          <input type="text" id="inputgroup" pInputText class="txt_input p-inputgroup-addon" disabled>
+          <label for="inputgroup">{{empleadoArrId[0]?.Role}}</label>
+        </span>
+        <span class="p-float-label">
+          <input type="text" id="inputgroup" pInputText class="txt_input p-inputgroup-addon" disabled>
+          <label for="inputgroup">{{empleadoArrId[0]?.Contrasena}}</label>
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
